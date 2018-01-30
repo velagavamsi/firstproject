@@ -1,0 +1,22 @@
+.tabs-area{
+    background: #fff;
+}
+.tabs-head{
+    border-right: 1px solid #e3e3e3;
+}
+.tabs-head span{
+    cursor: pointer;
+    padding: 10px 0 10px 15px;
+    border-bottom: 1px solid #e3e3e3;
+    margin: 0;
+}
+.tabs-head span:last-of-type{
+    border-bottom: none;
+}
+.tabs-head span:hover{
+    background: #ececec;
+}
+.extraclass{
+    background: #e3e3e3;
+    border-right: 3px solid red;
+}

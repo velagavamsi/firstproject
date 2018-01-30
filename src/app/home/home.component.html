@@ -1,0 +1,387 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-xs-12 col-sm-4 col-md-4 allpatients-list">
+      <h3>All Patients</h3>
+      <ul class="row pl-0">
+        <li class="p-3">
+          <div class="col-md-4 float-left"><img src="assets/images/if_photo_370076.png" alt="Profile Pic"></div>
+          <div class="col-md-8 float-left pr-0">
+            <div class="row mx-0 d-block float-left w-100">
+              <div class="float-left">Date</div>
+              <b class="float-right">04/12/2017</b> </div>
+            <div class="row d-inline-block text-left mx-0">
+              <h4>Vamsi velaga</h4>
+            </div>
+            <div class="row mx-0 float-left w-100 d-block">
+              <button type="button" class="btn btn-info float-right px-1" (click)="openCard = !openCard">Open card</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-8">
+      <div class="col-md-12 newpatient-form float-left py-3">
+        <div class="row w-100 float-left d-block mx-0">
+          <h4 class="float-left"><i class="fa fa-heartbeat" aria-hidden="true"></i>New Patient</h4>
+          <button type="button" class="btn btn-info float-right py-1">Save</button>
+          <button type="button" class="btn btn-dark float-right mr-3 py-1">Save and open</button>
+        </div>
+        <!-- <form> -->
+        <div class="row w-100 float-left d-block mx-0 my-2">
+         <div class="col-xs-12 col-sm-4 col-md-4 float-left">
+            <div class="form-group">
+              <label><i class="fa fa-pencil"></i></label>
+              <mat-form-field>
+                <input matInput type="text" placeholder="First Name" [(ngModel)]="FirstName" name="FirstName">
+              </mat-form-field>
+          </div>
+          </div>
+         <div class="col-xs-12 col-sm-4 col-md-4 float-left">
+            <div class="form-group">
+              <label><i class="fa fa-pencil"></i></label>
+              <mat-form-field>
+                 <input matInput value="" placeholder="Middle Name" [ngModel]="MiddleName"> 
+              </mat-form-field>
+            </div>
+          </div>
+         <div class="col-xs-12 col-sm-4 col-md-4 float-left">
+            <div class="form-group">
+              <label><i class="fa fa-pencil"></i></label>
+              <mat-form-field>
+                 <input matInput value="" placeholder="Sur Name" [ngModel]="SurName"> 
+              </mat-form-field>
+            </div>
+          </div>
+         <div class="col-xs-12 col-sm-4 col-md-4 float-left">
+            <div class="form-group">
+              <label><i class="fa fa-pencil"></i></label>
+              <mat-form-field>
+                 <input matInput value="" placeholder="Title(optionally)" [ngModel]="Title"> 
+              </mat-form-field>
+            </div>
+          </div>
+         <div class="col-xs-12 col-sm-4 col-md-4 float-left">
+            <div class="form-group">
+              <label><i class="fa fa-calendar" aria-hidden="true"></i></label>
+               <mat-form-field>
+                <input matInput value="" placeholder="Date of Birth" [ngModel]="Dob">
+              </mat-form-field>
+            </div>
+          </div>
+         <div class="col-xs-12 col-sm-4 col-md-4 float-left">
+            <div class="form-group">
+              <!--<label><i class="fa fa-sort-desc" aria-hidden="true"></i></label> -->
+              <mat-form-field>
+                 <mat-select placeholder="Gender">
+                  <mat-option *ngFor="let gender of genders" [value]="gender">
+                    {{ gender }}
+                  </mat-option>
+                </mat-select> 
+             </mat-form-field>
+            </div>
+          </div>
+        </div>
+      <!-- </form> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" *ngIf="openCard">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-xs-6 col-sm-4 col-md-4">
+        <h4>Patient Card</h4>
+      </div>
+      <div class="col-xs-6 col-sm-8 col-md-8">
+        <button type="button" class="btn btn-danger float-right px-1 py-1" (click)="openCard = !openCard"><i class="fa fa-times" aria-hidden="true"></i></button>
+        <button type="button" class="btn btn-dark float-right mr-2 px-1 py-1">Open On patient page</button>
+      </div>
+    </div>
+    <div class="container profile-edit mt-3">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-3 border p-4">
+          <img src="assets/images/if_photo_370076.png" class="m-auto d-block" width="96" alt="Profile Pic" />
+          <div class="content-display" *ngIf="!contentDisplayEdit">
+            <div class="text-center">
+            <h3>Vamsi Velaga</h3>
+            <b>General Checkup</b>
+            <p>First Visit : <b>05/12/2017</b></p>
+          </div>
+          <ul class="px-2">
+            <li> <span>Gender</span> <i class="fa fa-male float-right" aria-hidden="true"></i> </li>
+            <li> <span>Age</span>
+              <i>29</i>
+            </li>
+            <li> <span>Social Security Number</span>
+              <i class="float-right">102897</i>
+            </li>
+            <li> <span>Insurance Number</span>
+              <i class="float-right">52398</i>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-dark d-block m-auto py-1 w-75" (click)="contentDisplayEdit = !contentDisplayEdit">Edit</button>
+          </div>
+          <form>
+          <div class="content-display-edit" *ngIf="contentDisplayEdit">
+            <div class="form-group">
+              <label class="bg-success text-white"><i class="fa fa-check"></i></label>
+              <mat-form-field>
+                <input matInput type="email" placeholder="E-Mail" [(ngModel)]="editEmail" name="editEmail">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-pencil"></i></label>
+              <mat-form-field>
+                <input matInput type="text" placeholder="First Name" [(ngModel)]="editFirstName" name="editFirstName">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-pencil"></i></label>
+              <mat-form-field>
+                <input matInput type="text" placeholder="Mid Name" [(ngModel)]="editMiddleName" name="editMiddleName">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-pencil"></i></label>
+              <mat-form-field>
+                <input matInput type="text" placeholder="Last Name" [(ngModel)]="editLastName" name="editLastName">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-tag"></i></label>
+              <mat-form-field>
+                <input matInput type="text" placeholder="Title" [(ngModel)]="editTitle" name="editTitle">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-user"></i></label>
+              <mat-form-field>
+                <mat-select placeholder="Gender">
+                 <mat-option *ngFor="let gender of genders1" [value]="gender">
+                   {{ gender }}
+                 </mat-option>
+               </mat-select> 
+            </mat-form-field>
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-calendar" aria-hidden="true"></i></label>
+              <mat-form-field>
+                <input matInput type="text" id="datetimepicker2" placeholder="Date of birth" [(ngModel)]="editDob" name="editDob">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-link"></i></label>
+              <mat-form-field>
+                <input matInput type="text" placeholder="Social Security" [(ngModel)]="editSocialSecurity" name="editSocialSecurity">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-credit-card"></i></label>
+              <mat-form-field>
+                <input matInput type="text" placeholder="Insurance" [(ngModel)]="editInsurance" name="editInsurance">
+              </mat-form-field>
+            </div>
+            <div class="row d-block">
+              <button type="button" class="btn btn-dark float-right" (click)="contentDisplayEdit = !contentDisplayEdit">Cancel</button>
+              <button type="button" class="btn btn-success float-right mr-2">Save</button>
+            </div>
+          </div>
+        </form>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-9">
+          <div class="row border mx-0 mb-3 p-3">
+            <div class="w-100"><i class="fa fa-share-alt float-left fa-lg mr-2 mt-2"></i><h4>Share complaints His. Ph. and lab with a colleague</h4></div>
+            <div class="w-100">
+              <div class="input-group search"> <span class="input-group-addon p-0">
+                <button type="button" class="btn btn-group"><i class="fa fa-wheelchair" aria-hidden="true"></i></button>
+                </span>
+                <input type="text" class="form-control" placeholder="Search Here">
+                <span class="input-group-addon p-0">
+                <button type="button" class="btn btn-group btn-info py-2">open card</button>
+                </span> </div>
+            </div>
+          </div>
+          <div class="row border mx-0 mb-3 p-3">
+            <div class="w-75"><i class="fa fa-leaf float-left fa-lg mr-2 mt-2"></i><h4>Allergy</h4></div>
+            <div class="w-25">
+              <button type="button" class="btn btn-dark float-right" (click)="allergy = !allergy"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+            </div>
+            <div class="w-100 mt-3" *ngIf="allergy">
+              <div class="input-group">
+                <textarea class="form-control" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row mx-0 mb-3 p-3 patient-medical-details">
+            <mat-tab-group>
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                      <i class="fa fa-map-pin fa-lg mr-2" aria-hidden="true"></i> Contact
+                  </ng-template>
+                  <h4 class="mb-3">Contact Information</h4>
+                  <div class="row mx-0">
+                    <div class="col-xs-12 col-sm-4 col-md-4 float-left">
+                      <div class="row w-100 d-block float-left mx-0">
+                          <b><i class="fa fa-envelope mr-1" aria-hidden="true"></i>Email</b>
+                          <button type="button" class="btn btn-dark rounded-0 p-1 float-right" *ngIf="!contactEmail" (click)="contactEmail = !contactEmail">
+                            <i class="fa fa-plus mr-2" aria-hidden="true"></i>Add Email
+                          </button>
+                      </div>
+                      <div class="d-block w-100 d-block float-left mx-0" *ngIf="contactEmail">
+                          <div class="row w-100 my-2 float-left mx-0">
+                              <div class="form-group w-inherit mb-0">
+                              <input type="email" class="form-control" placeholder="E-Mail" [(ngModel)]="contactEmail1"/>
+                            </div>
+                          </div>
+                              <div class="row w-100 d-block float-left mx-0">
+                              <button type="button" class="btn btn-danger float-right rounded-0 py-1" (click)="contactEmail = !contactEmail">Cancel</button>
+                              <button type="button" class="btn btn-success float-right rounded-0 mr-2 py-1">Save</button>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 float-left">
+                        <div class="row w-100 d-block float-left mx-0">
+                            <b><i class="fa fa-phone mr-1" aria-hidden="true"></i>Phone</b>
+                            <button type="button" class="btn btn-dark rounded-0 p-1 float-right" *ngIf="!contactPhone" (click)="contactPhone = !contactPhone">
+                              <i class="fa fa-plus mr-2" aria-hidden="true"></i>Add Phone
+                            </button>
+                        </div>
+                        <div class="d-block w-100 d-block float-left mx-0" *ngIf="contactPhone">
+                            <div class="row w-100 my-2 float-left mx-0">
+                                <div class="form-group w-inherit mb-0">
+                                <input type="email" class="form-control" placeholder="Phone" [(ngModel)]="contactPhone1"/>
+                              </div>
+                            </div>
+                                <div class="row w-100 d-block float-left mx-0">
+                                <button type="button" class="btn btn-danger float-right rounded-0 py-1" (click)="contactPhone = !contactPhone">Cancel</button>
+                                <button type="button" class="btn btn-success float-right rounded-0 mr-2 py-1">Save</button>
+                              </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-4 col-md-4 float-left">
+                          <div class="row w-100 d-block float-left mx-0">
+                              <b><i class="fa fa-fax mr-1" aria-hidden="true"></i>Fax</b>
+                              <button type="button" class="btn btn-dark rounded-0 p-1 float-right" *ngIf="!contactFax" (click)="contactFax = !contactFax">
+                                <i class="fa fa-plus mr-2" aria-hidden="true"></i>Add Fax
+                              </button>
+                          </div>
+                          <div class="d-block w-100 d-block float-left mx-0" *ngIf="contactFax">
+                              <div class="row w-100 my-2 float-left mx-0">
+                                  <div class="form-group w-inherit mb-0">
+                                  <input type="email" class="form-control" placeholder="Fax" [(ngModel)]="contactFax1"/>
+                                </div>
+                              </div>
+                                  <div class="row w-100 d-block float-left mx-0">
+                                  <button type="button" class="btn btn-danger float-right rounded-0 py-1" (click)="contactFax = !contactFax">Cancel</button>
+                                  <button type="button" class="btn btn-success float-right rounded-0 mr-2 py-1">Save</button>
+                                </div>
+                          </div>
+                        </div>
+                  </div>
+                  <div class="row pb-1 mt-3 border-bottom mx-0">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                          <b><i class="fa fa-map-marker mr-1"></i> Address</b>
+                          <button type="button" class="btn btn-dark py-1 float-right" *ngIf="!contactAddressShow" (click)="contactAddressShow = !contactAddressShow"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12" *ngIf="contactAddressShow">
+                          <div class="row my-2">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <button type="button" class="btn btn-danger float-right rounded-0" (click)="contactAddressShow = !contactAddressShow">Cancel</button>
+                              <button type="button" class="btn btn-success float-right mr-2 rounded-0">Save</button>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Country">
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="State">
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="City">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                      <i class="fa fa-heartbeat fa-lg mr-2" aria-hidden="true"></i> Diagnoses
+                  </ng-template>
+                  <h4 class="d-inline-block mt-1">Patient Diagnoses</h4>
+                  <button type="button" class="btn btn-info float-right rounded-0 py-1 mt-1" (click)="unlistedDiagnoses">Add unlisted Diagnoses</button>
+                  <div class="w-100">
+                      <div class="input-group search"> 
+                        <span class="input-group-addon p-0">
+                          <button type="button" class="btn btn-group"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </span>
+                        <!-- <input type="text" class="form-control" placeholder="Search Diagnosis With Name Or Code" [(ngModel)]="diagnosesName"> -->
+                        <mat-form-field class="pl-0 w-100">
+                          <input matInput placeholder="Search Diagnosis With Name Or Code" aria-label="State" [(ngModel)]="diagnosesName" [matAutocomplete]="auto" [formControl]="stateCtrl">
+                          <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let state of filteredStates | async" [value]="state.Name">
+                              <span>{{ state.Code + " " +state.Name }}</span>
+                            </mat-option>
+                          </mat-autocomplete>
+                        </mat-form-field>
+                        <span class="input-group-addon p-0">
+                          <button type="button" class="btn btn-group btn-info" (click)="addDiagnoses(diagnosesName)">Add</button>
+                        </span> 
+                      </div>
+                      <!-- <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term"> -->
+                    </div>
+                    <ul class="w-100 mt-3">
+                        <li *ngFor="let item of diagnosesList" class="w-100 d-block float-left mb-2">
+                          {{item.Name}}<button type="button" class="btn btn-danger py-1 float-right" (click)="deleteLi(item.Name)"><i class="fa fa-trash-o text-white"></i></button>
+                        </li>
+                      </ul>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <i class="fa fa-stethoscope fa-lg mr-2" aria-hidden="true"></i> Complaints
+                    </ng-template>
+                    <div class="row mx-0 mt-2">
+                      <div class="col-xs-12 col-md-8">
+                          <h5>Complaints, history, physical examination and labwork (optional)</h5>
+                          <button type="button" class="btn btn-dark py-1 float-right"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                      </div>
+                      <div class="col-xs-12 col-md-4">
+                        Right
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <mat-tab>
+                      <ng-template mat-tab-label>
+                          <i class="fa fa-medkit fa-lg mr-2" aria-hidden="true"></i> Medications
+                      </ng-template>
+                      <h4 class="mb-3">Contact Information</h4>
+                      <p>...</p>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <i class="fa fa-medkit fa-lg mr-2" aria-hidden="true"></i> Lab Tests
+                        </ng-template>
+                        <h1>Terrible sushi restaurants</h1>
+                        <p>...</p>
+                      </mat-tab>
+              </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container unlistedDiagnoses" *ngIf="unlistedDiagnoses">
+    <div class="form-group">
+        <label><i class="fa fa-list" aria-hidden="true"></i></label>
+         <mat-form-field>
+          <input matInput value="" placeholder="Unlisted Diagnoses">
+        </mat-form-field>
+      </div>
+</div>

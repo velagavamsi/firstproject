@@ -1,0 +1,18 @@
+.mat-option.mat-active{
+    background: #cecece;
+}
+.mat-option:hover:not(.mat-option-disabled){
+    background: #cecece;
+}
+.mat-form-field{
+    height: 38px;
+    /* border: 1px solid #ced4da; */
+}
+.mat-form-field-label{
+    left: 10px !important;
+}
+.unlistedDiagnoses{
+    width: 260px;
+    position: absolute;
+    margin: 0 auto;
+}

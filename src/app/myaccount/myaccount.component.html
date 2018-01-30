@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row tabs-area p-2">
+    <div class="col-md-2 tabs-head mr-2 pr-0">
+      <span class="row w-100" [class.extraclass]="addSomeStyles1" (click)="oneFun(one)">One</span>
+      <span class="row w-100" [class.extraclass]="addSomeStyles2" (click)="twoFun(two)">Two</span>
+      <span class="row w-100" [class.extraclass]="addSomeStyles3" (click)="threeFun(three)">Three</span>
+    </div>
+    <div class="col-md-9 tabd-content">
+      <span class="row w-100" *ngIf="one">
+        <table>
+            <mat-radio-group>
+          <tr>
+            <td><mat-radio-button value="1">Option 1</mat-radio-button></td>
+          </tr>
+          <tr>
+            <td><mat-radio-button value="1">Option 1</mat-radio-button></td>
+          </tr>
+          <tr>
+            <td><mat-radio-button value="1">Option 1</mat-radio-button></td>
+          </tr>
+          <tr>
+            <td><mat-radio-button value="1">Option 1</mat-radio-button></td>
+          </tr>
+        </mat-radio-group>
+        </table>
+      </span>
+      <span class="row w-100" *ngIf="two">Content Two</span>
+      <span class="row w-100" *ngIf="three">Content Three</span>
+    </div>
+  </div>
+</div>

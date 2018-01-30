@@ -1,0 +1,22 @@
+<form novalidate>
+  <div class="row">
+    <div class="horizontal-group">
+       <div class="w-100">
+           <input type="text" 
+                  placeholder="Language"
+                  class="form-control">
+       </div>
+       <div class="w-100">
+           <input type="text" 
+                  placeholder="Years"
+                  class="form-control" >
+       </div>
+       <div class="w-100">
+           <button type="submit" class="btn btn-primary"
+                 (click)="save()" > Save</button>
+           <button type="button" class="btn btn-default"
+                 (click)="removeObject()" > Remove</button>
+       </div>
+    </div>
+  </div>
+</form>

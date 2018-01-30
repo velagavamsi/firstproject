@@ -1,0 +1,17 @@
+.mat-step-header{
+    float: left;
+}
+.mat-step-icon{
+    display: none!important;
+}
+.form-group > label{
+    border-bottom: 1px solid #DBE0E4;}
+.mat-button[disabled]{
+    background: rgba(0,0,0,.38);
+}
+.mat-button{
+    min-width: 30px;
+    line-height: 30px;
+    color: #fff;
+    background-color: #3f51b5;
+    border-color: #3f51b5;}
