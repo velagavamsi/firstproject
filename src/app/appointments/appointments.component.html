@@ -3,7 +3,7 @@
 <mat-horizontal-stepper [linear]="isLinear">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill Primary Details</ng-template>
+      <ng-template matStepLabel>Personal Details</ng-template>
       <div class="row">
         <div class="col-xs-12 offset-md-2 col-md-8">
           <div class="form-group col-xs-12 col-md-5 float-left pl-0 mr-3">
@@ -53,7 +53,7 @@
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
+      <ng-template matStepLabel>Address</ng-template>
       <mat-form-field>
         <input matInput placeholder="Address" formControlName="secondCtrl" required>
       </mat-form-field>
