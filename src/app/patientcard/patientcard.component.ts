@@ -92,9 +92,13 @@ form: FormGroup;
 
   @ViewChild('parent', {read: ViewContainerRef}) container: ViewContainerRef;
   addComponent(){
-    
+      // check and resolve the component
       var comp = this._cfr.resolveComponentFactory(ExpComponent);
+
+      // Create component inside container
       var expComponent = this.container.createComponent(comp);
+
+      // see explanations
       expComponent.instance._ref = expComponent;
       /*-- Add Remove Component --*/
   }

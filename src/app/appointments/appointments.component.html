@@ -58,11 +58,12 @@
           </div>
           <div class="form-group col-xs-12 col-md-5 float-left pl-0 ml-3">
             <label><i class="fa fa-pencil"></i></label>
-            <mat-form-field class="w-100">
-              <mat-select placeholder="Select">
+            <mat-form-field>
+              <mat-select placeholder="Select Medical Authority">
                 <mat-option value="option">Option 1</mat-option>
                 <mat-option value="option">Option 2</mat-option>
                 <mat-option value="option">Option 3</mat-option>
+                <mat-option value="option">Option 4</mat-option>
               </mat-select>
             </mat-form-field>
         </div>
@@ -75,10 +76,11 @@
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Address</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
+      <ng-template matStepLabel>Qualification Details</ng-template>
+      <div #parent></div>
+        <div>
+          <button type="button" (click)="addComponent()" class="btn btn-default">Add Experience </button>
+        </div>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>

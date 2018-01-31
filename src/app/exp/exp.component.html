@@ -1,22 +1,35 @@
 <form novalidate>
   <div class="row">
-    <div class="horizontal-group">
-       <div class="w-100">
-           <input type="text" 
-                  placeholder="Language"
-                  class="form-control">
-       </div>
-       <div class="w-100">
-           <input type="text" 
-                  placeholder="Years"
-                  class="form-control" >
-       </div>
-       <div class="w-100">
-           <button type="submit" class="btn btn-primary"
-                 (click)="save()" > Save</button>
-           <button type="button" class="btn btn-default"
-                 (click)="removeObject()" > Remove</button>
-       </div>
+    <div class="col-xs-12 col-md-2">
+        <mat-form-field>
+            <mat-select placeholder="Name Of Degree">
+              <mat-option value="option">Post Graduate</mat-option>
+              <mat-option value="option">Graduate</mat-option>
+              <mat-option value="option">Intermediate</mat-option>
+              <mat-option value="option">SSC</mat-option>
+              <mat-option value="option">Others</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-md-2">
+        <mat-form-field>
+            <input matInput placeholder="Issue Authority">
+          </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-md-2">
+        <mat-form-field>
+            <input matInput placeholder="Year of Passing">
+          </mat-form-field>
+    </div>
+    
+    <div class="col-xs-12 col-md-2">
+        <mat-form-field>
+            <input matInput placeholder="Grade">
+          </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-md-2">
+      <button type="submit" class="btn btn-danger" (click)="save()" > <i class="fa fa-check" aria-hidden="true"></i></button>
+      <button type="button" class="btn btn-success" (click)="removeObject()" > <i class="fa fa-times" aria-hidden="true"></i></button>
     </div>
   </div>
 </form>

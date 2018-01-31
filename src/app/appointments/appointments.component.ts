@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ComponentFactoryResolver, ViewContainerRef  } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+
+import { ExpComponent } from '../exp/exp.component';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -30,7 +32,7 @@ export class AppointmentsComponent implements OnInit {
   mobileCtrl= new FormControl('',[Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[0-9]+$")]);
   mciCtrl= new FormControl('',[Validators.pattern("^[a-zA-Z0-9]+$")]);
   
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private _cfr: ComponentFactoryResolver) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -39,7 +41,23 @@ export class AppointmentsComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+
+    this.addComponent();
   }
+
+  @ViewChild('parent', {read: ViewContainerRef}) container: ViewContainerRef;
+  addComponent(){
+      // check and resolve the component
+      var comp = this._cfr.resolveComponentFactory(ExpComponent);
+
+      // Create component inside container
+      var expComponent = this.container.createComponent(comp);
+
+      // see explanations
+      expComponent.instance._ref = expComponent;
+      /*-- Add Remove Component --*/
+  }
+
   firstError(){
     return this.firstNameCtrl.hasError('required') ? 'Please Enter First Name' :  
     this.firstNameCtrl.hasError('pattern') ? 'Value Should be Letters only' :
