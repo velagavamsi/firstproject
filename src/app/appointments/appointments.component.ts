@@ -23,11 +23,12 @@ export class AppointmentsComponent implements OnInit {
   lastNameCtrl= new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(8), Validators.pattern("^[a-zA-z]+$")]);
   
   /** Email Control */
-  emailFormControl = new FormControl('', [Validators.required,Validators.email]);
+  emailFormControl = new FormControl('', [Validators.email]);
   matcher = new MyErrorStateMatcher();
   /** Email Control */
 
   mobileCtrl= new FormControl('',[Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[0-9]+$")]);
+  mciCtrl= new FormControl('',[Validators.pattern("^[a-zA-Z0-9]+$")]);
   
   constructor(private _formBuilder: FormBuilder) { }
 
@@ -51,6 +52,12 @@ export class AppointmentsComponent implements OnInit {
   }
   mobileError(){
     return this.mobileCtrl.hasError('pattern') ? "Enter Only numbers" : this.mobileCtrl.hasError('minlength') || this.mobileCtrl.hasError('maxlength') ? "enter 10 numbers" : ''; 
+  }
+  emailError(){
+    return this.emailFormControl.hasError('email') ? "Enter Valid Email" : '';
+  }
+  mciError(){
+    return this.mciCtrl.hasError('pattern') ? "Enter Only Alpha and Numbers" : "";
   }
 
 }
