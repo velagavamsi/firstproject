@@ -78,8 +78,10 @@
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Qualification Details</ng-template>
       <div #parent></div>
-        <div>
-          <button type="button" (click)="addComponent()" class="btn btn-default">Add Experience </button>
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <button type="button" (click)="addComponent()" class="btn text-white ml-3 mb-2 rounded" style="background:#3f51b5">Add More </button>
+              </div>
         </div>
       <div>
         <button mat-button matStepperPrevious>Back</button>
