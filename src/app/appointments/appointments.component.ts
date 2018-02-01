@@ -58,6 +58,26 @@ export class AppointmentsComponent implements OnInit {
       /*-- Add Remove Component --*/
   }
 
+  hiddenForm1: boolean = true;
+  hiddenForm2: boolean = true;
+  hiddenForm3: boolean = true;
+  hiddenForm4: boolean = true;
+  removeObject(event){
+    if(event == 'hiddenForm1'){
+      this.hiddenForm1 = false;
+    }else if(event == 'hiddenForm2'){
+      this.hiddenForm2 = false;
+    }else if(event == 'hiddenForm3'){
+      this.hiddenForm2 = false;
+    }else if(event == 'hiddenForm4'){
+      this.hiddenForm2 = false;
+    }
+  }
+  
+  save(){
+    alert('Saved Successfully!');
+  }
+
   firstError(){
     return this.firstNameCtrl.hasError('required') ? 'Please Enter First Name' :  
     this.firstNameCtrl.hasError('pattern') ? 'Value Should be Letters only' :
