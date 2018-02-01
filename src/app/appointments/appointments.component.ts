@@ -21,6 +21,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class AppointmentsComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
   firstNameCtrl= new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(8), Validators.pattern("^[a-zA-Z]+$")]);
   lastNameCtrl= new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(8), Validators.pattern("^[a-zA-z]+$")]);
   
