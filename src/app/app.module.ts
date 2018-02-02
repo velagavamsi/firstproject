@@ -25,7 +25,7 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
 import { AssistantComponent } from './assistant/assistant.component';
 import { FilterPipe } from './filter.pipe';
 import { ExpComponent } from './exp/exp.component';
-//import { MatdialogComponent, DialogOverviewExampleDialog } from './matdialog/matdialog.component';
+import { MatdialogComponent, DialogOverviewExampleDialog } from './matdialog/matdialog.component';
 
 const appRoutes: Routes=[
   {path: 'home', component: HomeComponent},
@@ -56,8 +56,9 @@ const appRoutes: Routes=[
     MyaccountComponent,
     AssistantComponent,
     FilterPipe,
-    ExpComponent
-   // MatdialogComponent, DialogOverviewExampleDialog
+    ExpComponent,
+    MatdialogComponent, 
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule, NoopAnimationsModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatCheckboxModule, RouterModule.forRoot(appRoutes),
