@@ -58,7 +58,7 @@ const appRoutes: Routes=[
     ExpComponent
   ],
   imports: [
-    BrowserModule, NoopAnimationsModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatCheckboxModule, RouterModule.forRoot(appRoutes),
+    BrowserModule, NoopAnimationsModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatCheckboxModule, RouterModule.forRoot(appRoutes, { enableTracing: true }),
     MatFormFieldModule, MatInputModule, MatSelectModule, FlexLayoutModule, MatTabsModule, MatAutocompleteModule, MatRadioModule,
     MatStepperModule
   ],

@@ -8,6 +8,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1;
     background: rgba(0,0,0,.3);
     display: flex;
@@ -29,5 +31,13 @@
     font-weight: bold;
 }
 .blocks > figure > figcaption{
-    display: none;
+    position: absolute;
+    transform: translateY(0px);
+    transition: .3s ease-in;
+    -o-transition: .3s ease-in;
+    -ms-transition: .3s ease-in;
+    -moz-transition: .3s ease-in;
+    -webkit-transition: .3s ease-in;
 }
+.blocks > figure > .doc-hoverbg:hover ~ figcaption{
+    transform: translateY(-57px);}
