@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ComponentFactoryResolver, ViewContainerRe
 import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder, AbstractControl} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
-import { ExpComponent } from '../exp/exp.component';
 
 import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';
@@ -87,21 +86,8 @@ form: FormGroup;
 /*-- Auto Complete --*/
   /*-- Add Remove Component --*/
   ngOnInit() {
-    this.addComponent();
   }
-
-  @ViewChild('parent', {read: ViewContainerRef}) container: ViewContainerRef;
-  addComponent(){
-      // check and resolve the component
-      var comp = this._cfr.resolveComponentFactory(ExpComponent);
-
-      // Create component inside container
-      var expComponent = this.container.createComponent(comp);
-
-      // see explanations
-      expComponent.instance._ref = expComponent;
-      /*-- Add Remove Component --*/
-  }
+  
   
 
   /*-- Email --*/

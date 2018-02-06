@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./allpatients.component.css']
 })
 export class AllpatientsComponent implements OnInit {
-
+  imagesPath: string = "assets/images/";
   constructor() { }
 
   ngOnInit() {
