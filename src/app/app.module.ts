@@ -25,8 +25,11 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
 import { AssistantComponent } from './assistant/assistant.component';
 import { FilterPipe } from './filter.pipe';
 import { ExpComponent } from './exp/exp.component';
+import { IndexComponent } from './index/index.component';
+import { HeaderComponent } from './header/header.component';
 
 const appRoutes: Routes=[
+  {path: 'index', component: IndexComponent},
   {path: 'home', component: HomeComponent},
   {path: 'patientcard', component: PatientcardComponent},
   {path: 'allpatients', component: AllpatientsComponent},
@@ -55,7 +58,9 @@ const appRoutes: Routes=[
     MyaccountComponent,
     AssistantComponent,
     FilterPipe,
-    ExpComponent
+    ExpComponent,
+    IndexComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule, NoopAnimationsModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatCheckboxModule, RouterModule.forRoot(appRoutes, { enableTracing: true }),

@@ -9,12 +9,6 @@ import { Component } from '@angular/core';
 export class AppComponent{
   public childText:string;
   title = 'app';
-  logo: string = "assets/images/logo.png";
-  headerProfilePic: string = "assets/images/if_photo_370076.png";
-  languages: string[] =[
-    "English","Telugu","Hindi","Kanada","Tamil"
-  ];
-  languageToggle: boolean = false;
-  headerProfileToggle: boolean = false;
+  
 
 }

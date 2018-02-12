@@ -5,6 +5,8 @@ import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';
 import {map} from 'rxjs/operators/map';
 
+import { HeaderComponent } from '../header/header.component';
+
 export class State {
   constructor(public Code: string, public Name: string) { }
 }

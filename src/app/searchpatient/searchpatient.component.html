@@ -1,3 +1,49 @@
-<p>
-  searchpatient works!
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <i class="fa fa-angle-left" (click)="_oneLeft()" *ngIf="oneLeft"></i>
+    <i class="fa fa-angle-left" (click)="_twoLeft()" *ngIf="twoLeft"></i>
+    <i class="fa fa-angle-left" (click)="_threeLeft()" *ngIf="threeLeft"></i>
+  </div>
+  <div class="col-md-4">
+    <p *ngIf="oneContent">ONE</p>
+    <p *ngIf="twoContent">Two</p>
+    <p *ngIf="threeContent">Three</p>
+  </div>
+  <div class="col-md-4">
+    <i class="fa fa-angle-right" (click)="_oneRight(oneRight)" *ngIf="oneRight"></i>
+    <i class="fa fa-angle-right" (click)="_twoRight(twoRight)" *ngIf="twoRight"></i>
+    <i class="fa fa-angle-right" (click)="_threeRight(threeRight)" *ngIf="threeRight"></i>
+  </div>
+</div>
+<br/>
+<br/>
+<div class="row">
+  <div class="col-md-4">Static Text </div>
+  <div class="col-md-4" *ngIf="oneDrop">
+    <mat-form-field>
+      <mat-select placeholder="One">
+        <mat-option *ngFor="let food of ones" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-md-4" *ngIf="twoDrop">
+    <mat-form-field>
+      <mat-select placeholder="Two">
+        <mat-option *ngFor="let food of twos" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-md-4" *ngIf="threeDrop">
+    <mat-form-field>
+      <mat-select placeholder="Three">
+        <mat-option *ngFor="let food of threes" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
