@@ -30,6 +30,8 @@ export class AppointmentsComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   /** Email Control */
 
+  landCtrl= new FormControl('',[Validators.minLength(11), Validators.maxLength(11), Validators.pattern("^[0-9]+$")]);
+
   mobileCtrl= new FormControl('',[Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[0-9]+$")]);
   mciCtrl= new FormControl('',[Validators.pattern("^[a-zA-Z0-9]+$")]);
   
@@ -92,6 +94,10 @@ export class AppointmentsComponent implements OnInit {
   mobileError(){
     return this.mobileCtrl.hasError('pattern') ? "Enter Only numbers" : this.mobileCtrl.hasError('minlength') || this.mobileCtrl.hasError('maxlength') ? "enter 10 numbers" : ''; 
   }
+  landError(){
+    return this.landCtrl.hasError('pattern') ? "Enter Only numbers" : this.mobileCtrl.hasError('minlength') || this.mobileCtrl.hasError('maxlength') ? "enter 11 numbers" : ''; 
+  }
+
   emailError(){
     return this.emailFormControl.hasError('email') ? "Enter Valid Email" : '';
   }

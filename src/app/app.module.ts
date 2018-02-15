@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatButtonModule, MatCheckboxModule, MatInputModule, MatNativeDateModule } from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -11,6 +11,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
@@ -65,7 +66,8 @@ const appRoutes: Routes=[
   imports: [
     BrowserModule, NoopAnimationsModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatCheckboxModule, RouterModule.forRoot(appRoutes, { enableTracing: true }),
     MatFormFieldModule, MatInputModule, MatSelectModule, FlexLayoutModule, MatTabsModule, MatAutocompleteModule, MatRadioModule,
-    MatStepperModule
+    MatStepperModule,MatDatepickerModule,MatNativeDateModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

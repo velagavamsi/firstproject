@@ -45,9 +45,9 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12 offset-md-2 col-md-8">
-          <div class="form-group col-xs-12 col-md-5 float-left pl-0 mr-3">
+        <div class="row">
+          <div class="col-xs-12 offset-md-2 col-md-8">
+            <div class="form-group col-xs-12 col-md-5 float-left pl-0 mr-3">
               <label><i class="fa fa-pencil"></i></label>
               <mat-form-field class="w-100">
                 <input matInput placeholder="MCI Registration ID" [formControl]="mciCtrl">
@@ -64,9 +64,21 @@
                 <mat-option value="option">Option 4</mat-option>
               </mat-select>
             </mat-form-field>
-        </div>
-        </div>
-      </div>
+          </div>
+        </div>  
+      
+            <div class="col-xs-12 offset-md-2 col-md-8">
+             <div class="form-group col-xs-12 col-md-5 float-left pl-0 mr-3">
+               <label><i class="fa fa-calendar-check-o" aria-hidden="true"></i></label> 
+                <mat-form-field>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date of Date of Birth">
+                </mat-form-field>
+              </div>
+            </div>
+      
+        </div>    
       <div class="text-center">
         <button mat-button matStepperNext class="btn-indigo" [disabled]="firstNameCtrl.invalid || lastNameCtrl.invalid || emailFormControl.invalid || mobileCtrl.invalid">Next</button>
       </div>
@@ -273,9 +285,110 @@
         <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
             <label><i class="fa fa-pencil"></i></label>
             <mat-form-field class="example-full-width">
-              <input type="text" matInput placeholder="Registration Date">
+              <input type="text" matInput placeholder="MobileNumber1" [formControl]="mobileCtrl">
+              <mat-error *ngIf="mobileCtrl.invalid">{{mobileError()}}</mat-error>
             </mat-form-field>
           </div>
+          <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+            <label><i class="fa fa-pencil"></i></label>
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="MobileNumber2" [formControl]="mobileCtrl">
+              <mat-error *ngIf="mobileCtrl.invalid">{{mobileError()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+            <label><i class="fa fa-pencil"></i></label>
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Landline" [formControl]="landCtrl">
+              <mat-error *ngIf="landCtrl.invalid">{{lnadError()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+              <label><i class="fa fa-envelope" aria-hidden="true"></i></label>
+              <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="EmailId1" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="emailFormControl.invalid">{{emailError()}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+              <label><i class="fa fa-envelope" aria-hidden="true"></i></label>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="EmailId2" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                  <mat-error *ngIf="emailFormControl.invalid">{{emailError()}}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                  <label><i class="fa fa-pencil"></i></label>
+                  <mat-form-field class="example-full-width">
+                    <input type="text" matInput placeholder="PANID">
+                  </mat-form-field>
+                </div>
+                <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                    <label><i class="fa fa-pencil"></i></label>
+                    <mat-form-field class="example-full-width">
+                      <input type="text" matInput placeholder="AdhaarId">
+                    </mat-form-field>
+                  </div>
+                <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                    <label><i class="fa fa-pencil"></i></label>
+                    <mat-form-field class="example-full-width">
+                      <input type="text" matInput placeholder="Parmenent Address">
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                      <label><i class="fa fa-pencil"></i></label>
+                      <mat-form-field class="example-full-width">
+                        <input type="text" matInput placeholder="Current Address">
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                        <label><i class="fa fa-pencil"></i></label>
+                        <mat-form-field class="example-full-width">
+                          <input type="text" matInput placeholder="City">
+                        </mat-form-field>
+                      </div>
+                      <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                          <label><i class="fa fa-pencil"></i></label>
+                          <mat-form-field class="example-full-width">
+                            <input type="text" matInput placeholder="State">
+                          </mat-form-field>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                            <label><i class="fa fa-pencil"></i></label>
+                            <mat-form-field class="example-full-width">
+                              <input type="text" matInput placeholder="CountryCode">
+                            </mat-form-field>
+                          </div>
+                          <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                              <label><i class="fa fa-pencil"></i></label>
+                              <mat-form-field class="example-full-width">
+                                <input type="text" matInput placeholder="PassportNumber">
+                              </mat-form-field>
+                            </div>
+                           <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                              <label><i class="fa fa-calendar-check-o" aria-hidden="true"></i></label>
+                              <mat-form-field>
+                                  <input matInput [matDatepicker]="picker2" placeholder="Choose PassportIssue Date">
+                                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                  <mat-datepicker #picker2></mat-datepicker>
+                              </mat-form-field>
+                           </div>
+                           <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                                 <label> <i class="fa fa-calendar-check-o" aria-hidden="true"></i></label> 
+                                  <mat-form-field>
+                                      <input matInput [matDatepicker]="picker4" placeholder="Choose PassportExpiry Date">
+                                      <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                                      <mat-datepicker #picker4></mat-datepicker>
+                                  </mat-form-field>
+                            </div>
+                                <div class="form-group col-xs-12 col-sm-4 col-md-3 col-lg-3 pl-0">
+                                    <label><i class="fa fa-pencil"></i></label>
+                                    <mat-form-field class="example-full-width">
+                                      <input type="text" matInput placeholder="PassportIssuanceCountryCode">
+                                    </mat-form-field>
+                                  </div>                  
+          
+      
     </div>
     <div>
       <button mat-button matStepperPrevious>Back</button>
